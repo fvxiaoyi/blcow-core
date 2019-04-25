@@ -38,8 +38,7 @@ public abstract class AbstractXmlQueryService implements IQueryService {
 
 	protected abstract <R> List<R> doQuery(String queryStr, Map<String, Object> param);
 
-	protected abstract <R> List<R> doPagingQuery(String queryStr, Map<String, Object> param, Integer start,
-			Integer limit);
+	protected abstract <R> List<R> doPagingQuery(String queryStr, Map<String, Object> param, Integer start, Integer limit);
 
 	protected abstract String getQueryString(String queryName, Map<String, Object> param);
 

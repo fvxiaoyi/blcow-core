@@ -39,8 +39,8 @@ public class MyBatisQueryParser extends AbstractDevelopQueryReloadPlugin impleme
 				if (isDevelop()) {
 					this.addResourceHolder(fileName.toLowerCase(), mapperLocation);
 				}
-				XMLMapperBuilder xmlMapperBuilder = new XMLMapperBuilder(mapperLocation.getInputStream(),
-						this.configuration, mapperLocation.toString(), this.configuration.getSqlFragments());
+				XMLMapperBuilder xmlMapperBuilder = new XMLMapperBuilder(mapperLocation.getInputStream(), this.configuration,
+						mapperLocation.toString(), this.configuration.getSqlFragments());
 				xmlMapperBuilder.parse();
 			} catch (Exception e) {
 				throw new RuntimeException("Failed to parse mapping resource: '" + mapperLocation + "'");

@@ -21,8 +21,8 @@ public abstract class AbstractWebMvcConfigurer implements WebMvcConfigurer {
 
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**").allowedOrigins(corsProperties.getUrls()).allowedHeaders("*")
-				.allowedMethods(CorsConfiguration.ALL).maxAge(3600);
+		registry.addMapping("/**").allowedOrigins(corsProperties.getUrls()).allowedHeaders("*").allowedMethods(CorsConfiguration.ALL)
+				.maxAge(3600);
 	}
 
 	@Override

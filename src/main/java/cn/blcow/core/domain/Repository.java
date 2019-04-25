@@ -83,8 +83,7 @@ public class Repository implements IRepository {
 	public <T> T findObjectByNamedQuery(String queryName, Map<?, ?> param) {
 		List<T> result = findByNamedQuery(queryName, param);
 		if (!CollectionUtils.isEmpty(result)) {
-			Assert.requireFalse(result.size() > 1,
-					"The query ['" + queryName + "'] result set record number > 1,may be breach intentions");
+			Assert.requireFalse(result.size() > 1, "The query ['" + queryName + "'] result set record number > 1,may be breach intentions");
 			return result.get(0);
 		}
 		return null;
@@ -100,8 +99,7 @@ public class Repository implements IRepository {
 	public <T> T findObjectByNamedQuery(String queryName, Object... param) {
 		List<T> result = findByNamedQuery(queryName, param);
 		if (!CollectionUtils.isEmpty(result)) {
-			Assert.requireFalse(result.size() > 1,
-					"The query ['" + queryName + "'] result set record number > 1,may be breach intentions");
+			Assert.requireFalse(result.size() > 1, "The query ['" + queryName + "'] result set record number > 1,may be breach intentions");
 			return result.get(0);
 		}
 		return null;

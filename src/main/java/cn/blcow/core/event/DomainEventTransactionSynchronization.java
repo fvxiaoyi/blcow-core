@@ -20,8 +20,8 @@ public class DomainEventTransactionSynchronization implements TransactionSynchro
 		if (TransactionSynchronizationManager.hasResource(EventBus.DOMAIN_EVENTS_KEY)) {
 			List<ApplicationEvent> events = (List<ApplicationEvent>) TransactionSynchronizationManager
 					.getResource(EventBus.DOMAIN_EVENTS_KEY);
-			events.forEach(EventBus.INSTANCE.getApplicationEventPublisher()::publishEvent);
 			TransactionSynchronizationManager.unbindResource(EventBus.DOMAIN_EVENTS_KEY);
+			events.forEach(EventBus.INSTANCE.getApplicationEventPublisher()::publishEvent);
 		}
 	}
 

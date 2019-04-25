@@ -16,6 +16,8 @@ public abstract class AbstractDomainEvent<T extends AbstractEntity> extends Appl
 
 	private String sourceEntity;
 
+	private boolean dispath;
+
 	public AbstractDomainEvent(T entity) {
 		super(entity);
 		setId(entity.getId());
@@ -26,6 +28,10 @@ public abstract class AbstractDomainEvent<T extends AbstractEntity> extends Appl
 	@SuppressWarnings("unchecked")
 	public T getSource() {
 		return (T) super.getSource();
+	}
+
+	public void dispath() {
+		setDispath(true);
 	}
 
 	public String getId() {
@@ -40,6 +46,10 @@ public abstract class AbstractDomainEvent<T extends AbstractEntity> extends Appl
 		return sourceEntity;
 	}
 
+	public boolean isDispath() {
+		return dispath;
+	}
+
 	private void setId(String id) {
 		this.id = id;
 	}
@@ -50,6 +60,10 @@ public abstract class AbstractDomainEvent<T extends AbstractEntity> extends Appl
 
 	private void setSourceEntity(String sourceEntity) {
 		this.sourceEntity = sourceEntity;
+	}
+
+	private void setDispath(boolean dispath) {
+		this.dispath = dispath;
 	}
 
 }

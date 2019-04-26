@@ -23,18 +23,18 @@ public class EventBus implements ApplicationEventPublisherAware {
 	@SuppressWarnings("unchecked")
 	public static void post(ApplicationEvent e) {
 		if (e instanceof AbstractDomainEvent) {
-			List<ApplicationEvent> events = null;
+			List<AbstractDomainEvent<?>> events = null;
 			if (TransactionSynchronizationManager.hasResource(DOMAIN_EVENTS_KEY)) {
-				events = (List<ApplicationEvent>) TransactionSynchronizationManager.getResource(DOMAIN_EVENTS_KEY);
-				events.add(e);
+				events = (List<AbstractDomainEvent<?>>) TransactionSynchronizationManager.getResource(DOMAIN_EVENTS_KEY);
+				events.add((AbstractDomainEvent<?>) e);
 			} else {
 				events = new ArrayList<>();
-				events.add(e);
+				events.add((AbstractDomainEvent<?>) e);
 				TransactionSynchronizationManager.bindResource(DOMAIN_EVENTS_KEY, events);
 			}
 
 		} else {
-			INSTANCE.getApplicationEventPublisher().publishEvent(e);
+			EventBus.INSTANCE.getApplicationEventPublisher().publishEvent(e);
 		}
 	}
 

@@ -16,7 +16,7 @@ import cn.blcow.core.event.DomainEventJpaTransactionManager;
 import cn.blcow.core.event.EventBus;
 
 @Configuration
-@EntityScan("com.**.apps.**.model")
+@EntityScan({ "com.**.apps.**.model", "com.**.apps.**.event" })
 public class JpaConfig {
 
 	@Bean

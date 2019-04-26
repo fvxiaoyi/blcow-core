@@ -13,8 +13,8 @@ public class DomainEventJpaTransactionManager extends JpaTransactionManager {
 	protected void prepareSynchronization(DefaultTransactionStatus status, TransactionDefinition definition) {
 		super.prepareSynchronization(status, definition);
 		if (!TransactionSynchronizationManager.getSynchronizations().stream()
-				.anyMatch(p -> p instanceof DomainEventTransactionSynchronization)) {
-			TransactionSynchronizationManager.registerSynchronization(new DomainEventTransactionSynchronization());
+				.anyMatch(p -> p instanceof DomainEventJpaTransactionSynchronization)) {
+			TransactionSynchronizationManager.registerSynchronization(new DomainEventJpaTransactionSynchronization());
 		}
 	}
 

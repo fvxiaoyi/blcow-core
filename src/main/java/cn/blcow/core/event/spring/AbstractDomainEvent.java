@@ -1,4 +1,4 @@
-package cn.blcow.core.event;
+package cn.blcow.core.event.spring;
 
 import java.time.Instant;
 

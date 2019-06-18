@@ -12,8 +12,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import cn.blcow.core.domain.Repository;
-import cn.blcow.core.event.DomainEventJpaTransactionManager;
-import cn.blcow.core.event.EventBus;
+import cn.blcow.core.event.spring.DomainEventJpaTransactionManager;
+import cn.blcow.core.event.spring.EventBus;
 
 @Configuration
 @EntityScan({ "com.**.apps.**.model", "com.**.apps.**.event" })

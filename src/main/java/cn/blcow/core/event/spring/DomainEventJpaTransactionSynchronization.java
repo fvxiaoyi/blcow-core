@@ -1,4 +1,4 @@
-package cn.blcow.core.event;
+package cn.blcow.core.event.spring;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,7 +14,7 @@ import cn.blcow.core.utils.Assert;
 public class DomainEventJpaTransactionSynchronization implements TransactionSynchronization {
 
 	/**
-	 * FIXME 事务提交前事件也持久化
+	 * FIXME 事务提交前事件也持久化?
 	 */
 	@Override
 	public void beforeCommit(boolean readOnly) {

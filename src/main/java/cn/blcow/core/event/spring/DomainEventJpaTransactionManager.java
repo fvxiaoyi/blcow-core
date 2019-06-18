@@ -1,4 +1,4 @@
-package cn.blcow.core.event;
+package cn.blcow.core.event.spring;
 
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.transaction.TransactionDefinition;

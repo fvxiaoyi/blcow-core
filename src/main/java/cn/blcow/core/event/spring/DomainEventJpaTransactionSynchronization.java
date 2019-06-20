@@ -37,13 +37,12 @@ public class DomainEventJpaTransactionSynchronization implements TransactionSync
 	public void afterCommit() {
 		if (TransactionSynchronizationManager.hasResource(EventBus.DOMAIN_EVENTS_KEY)) {
 			List<AbstractDomainEvent<?>> events = (List<AbstractDomainEvent<?>>) TransactionSynchronizationManager
-					.getResource(EventBus.DOMAIN_EVENTS_KEY);
-			TransactionSynchronizationManager.unbindResource(EventBus.DOMAIN_EVENTS_KEY);
+					.unbindResource(EventBus.DOMAIN_EVENTS_KEY);
 			events.forEach(event -> {
 				if (!event.isDispatch()) {
 					EventBus.INSTANCE.getApplicationEventPublisher().publishEvent(event);
-					/*event.setDispatch(true);
-					entityManager.merge(event);*/
+					event.setDispatch(true);
+					/* entityManager.merge(event);*/
 				}
 			});
 		}
